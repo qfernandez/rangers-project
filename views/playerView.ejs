@@ -1,11 +1,21 @@
 <%- include('partials/header.ejs') %>
-<img class='col-sm-1 portrait' src=<%=player.playerPicture%> /> <br>
-Name: <%= player.playerName %> <br>
-Postion: <%= player.playerPosition %> <br>
-Age: <%= player.playerAge %> <br>
-Height: <%= player.playerHeight %> <br>
-Weight: <%= player.playerWeight %> <br>
-Bats: <%= player.playerBats %> <br>
-Throws: <%= player.playerThrows %> <br>
-Grade: <%= player.playerGrade %> <br>
-Notes: <%= player.playerNotes %>
+
+<div class="d-flex justify-content-center container mt-5">
+    <div class="card p-3 bg-white"></i>
+        <div class="about-product text-center mt-2"><img src=<%=player.playerPicture%> width="300">
+            <div>
+                <h4><%= player.playerName %></h4>
+                <h6 class="mt-0 text-black-50"><%= player.playerPosition %></h6>
+            </div>
+        </div>
+        <div class="stats mt-2">
+            <div class="d-flex justify-content-between p-price"><span>Age</span><span><%= player.playerAge %></span></div>
+            <div class="d-flex justify-content-between p-price"><span>Height</span><span><%= player.playerHeight %></span></div>
+            <div class="d-flex justify-content-between p-price"><span>Weight</span><span><%= player.playerWeight %></span></div>
+            <div class="d-flex justify-content-between p-price"><span>Bats</span><span><%= player.playerBats %></span></div>
+            <div class="d-flex justify-content-between p-price"><span>Throws</span><span><%= player.playerThrows %></span></div>
+            <div class="d-flex justify-content-between p-price"><span>Grade</span><span><%= player.playerGrade %></span></div>
+        </div>
+        <div class="d-flex justify-content-between total font-weight-bold mt-4"><span>Notes:   </span><span><%= player.playerNotes %></span></div>
+    </div>
+</div>
