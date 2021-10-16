@@ -129,6 +129,19 @@ function getPlayerList(){
     });//promise 
 }
 
+app.get("/deletePlayer", async function(req, res){
+ let rows = await deletePlayer(req.query.id);
+ console.log(rows);
+  let message = "Player WAS NOT deleted!";
+  
+  if (rows.affectedRows > 0) {
+      message= "Player successfully deleted!";
+  }    
+    
+   let playerList= await getPlayerList();  
+   res.render("main", {"playerList":playerList});
+});
+
 function getPlayerInfo(name){
    let conn = dbConnection();
     return new Promise(function(resolve, reject){
@@ -198,6 +211,28 @@ function insertPlayer(body){
         });//connect
     });//promise 
 } // insertProd
+
+function deletePlayer(id){
+   
+   let conn = dbConnection();
+    
+    return new Promise(function(resolve, reject){
+        conn.connect(function(err) {
+           if (err) throw err;
+           console.log("Connected!");
+        
+           let sql = `DELETE FROM players
+                      WHERE playerId = ?`;
+        
+           conn.query(sql, [id], function (err, rows, fields) {
+              if (err) throw err;
+              conn.end();
+              resolve(rows);
+           });
+        
+        });//connect
+    });//promise 
+}
 
 function dbConnection(){
    let conn = mysql.createConnection({
