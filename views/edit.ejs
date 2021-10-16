@@ -1,0 +1,22 @@
+<%- include('partials/header.ejs') %>
+        <h1 class="text-center display-3"><strong><i> Update Player Info </i></strong></h1>
+        <br>
+        <form method="POST">
+            <input type="hidden" name="name" value="<%= playerInfo.playerName %>">
+            Name: <%= playerInfo.playerName %> (Non-changable)<br>    
+            Position: <input type="text" name="position" value="<%= playerInfo.playerPosition %>"><br>
+            Image URL: <input type="text" name="image"  value="<%= playerInfo.playerPicture %>"><br>
+            Age: <input type="number" name="age"  value="<%= playerInfo.playerAge %>"><br>
+            Height: <input type="text" name="height"  value="<%= playerInfo.playerHeight %>"><br>
+            Weight: <input type="number" name="weight"  value="<%= playerInfo.playerWeight %>"><br>
+            Bats: <input type="text" name="bats"  value="<%= playerInfo.playerBats %>"><br>
+            Throws: <input type="text" name="throws"  value="<%= playerInfo.playerThrows %>"><br>
+            Grade: <input type="number" name="grade"  value="<%= playerInfo.playerGrade %>"><br>
+            Notes: <input type="text" name="notes"  value="<%= playerInfo.playerNotes %>"><br>
+            <br><br>
+            <button class="btn btn-primary">Update Player</button><br>
+            <%= typeof(message) != "undefined"?message:"" %>
+        </form>       
+        <br><br>
+    </body>
+</html>
