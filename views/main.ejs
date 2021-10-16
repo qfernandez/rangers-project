@@ -6,37 +6,41 @@
                                 <form action="/addPlayer">
                                     <button class="btn btn-primary"> Add New Player </button>
                                 </form>
+                                
+                                <!--Lists the players-->
                               <% playerList.forEach(function(player){  %>
                                <div class="col-lg-4 col-md-6 mb-4">
                                  <div class="card h-100">
                                   <div class="card-body">
-                                    <h4 class="card-title">
+                                    <h5 class="card-title">
                                         <img class='col-sm-4 portrait' src=<%=player.playerPicture%> />
-                                        Name: <%= player.playerName %> 
-                                        Position: <%= player.playerPosition %> 
+                                        Name: <%= player.playerName %> <br>
+                                        Position: <%= player.playerPosition %> <br>
                                         Age: <%= player.playerAge %> <br>
+                                        <a class="btn btn-primary btn-sm" href="/playerView?name=<%= player.playerName %>">Info</a>
                                         <a class="btn btn-primary btn-sm" href="/edit?name=<%= player.playerName %>">Update</a>
                                         <a onclick="deleteConfirm()" class="btn btn-primary btn-sm" href="/deletePlayer?id=<%= player.playerId %>">Delete</a>
-                                    </h4>
+                                    </h5>
                                     </div>
                                   </div>
-                                  <div class="card-footer">
-                                  </div>
                                </div>
-                              </div>
+                               <!--<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">-->
+                               <!--     <div class="offcanvas-header">-->
+                               <!--         <h5 id="offcanvas-title" id="offcanvasScrollingLabel"></h5><%= player.playerName %></h5><br>-->
+                               <!--         <div class="offcanvas-body">-->
+                               <!--             <img class='col-sm-10 portrait' src=<%=player.playerPicture%> /><br>-->
+                               <!--             Position: <%= player.playerPosition %><br>-->
+                               <!--             Age: <%= player.playerAge %> <br>-->
+                               <!--             Height: <%= player.playerHeight %> <br>-->
+                               <!--             Weight: <%= player.playerWeight %> <br>-->
+                               <!--             Bats: <%= player.playerBats %> <br>-->
+                               <!--             Throws: <%= player.playerThrows %> <br>-->
+                               <!--             Grade: <%= player.playerGrade %> <br>-->
+                               <!--             Notes: <%= player.playerNotes %> <br>-->
+                               <!--         </div>-->
+                               <!--     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>-->
+                               <!--   </div>-->
+                               <!-- </div>-->
                             <% }) %>
-                            </div>
-                            <!-- /.row -->
-                          </div>
-                          <!-- /.col-lg-9 -->
-                        </div>
-                        <!-- /.row -->
-                      </div>
-                      <!-- /.container -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 </html>

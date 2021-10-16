@@ -80,6 +80,11 @@ app.get("/addPlayer", function(req, res){
   res.render("addPlayer");
 });
 
+app.get("/playerView", async function(req, res){
+    let player = await getPlayerInfo(req.query.name);
+    res.render("playerView", {"player":player});
+});
+
 app.post("/addPlayer", async function(req, res){
   let rows = await insertPlayer(req.body);
   console.log(rows);
