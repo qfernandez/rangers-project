@@ -76,6 +76,13 @@ app.post("/loginProcess", async function(req, res) {
     }
 }); // loginProcess
 
+app.get("/logout", async function(req, res){    
+    if (req.session) {
+        req.session.destroy();
+        res.render("login");
+  }
+});
+
 app.get("/addPlayer", function(req, res){
   res.render("addPlayer");
 });
